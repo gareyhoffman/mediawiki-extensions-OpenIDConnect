@@ -154,6 +154,9 @@ class OpenIDConnect extends PluggableAuth {
 			if ( isset( $config['proxy'] ) ) {
 				$oidc->setHttpProxy( $config['proxy'] );
 			}
+			if ( $GLOBALS['wgOpenIDConnect_DoNotVerifySSL'] === true ) {
+				$oidc->setVerifyPeer( false );
+			}
 			$redirectURL =
 				SpecialPage::getTitleFor( 'PluggableAuthLogin' )->getFullURL();
 			$oidc->setRedirectURL( $redirectURL );
