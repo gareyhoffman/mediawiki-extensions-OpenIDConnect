@@ -156,6 +156,7 @@ class OpenIDConnect extends PluggableAuth {
 			}
 			if ( $GLOBALS['wgOpenIDConnect_DoNotVerifySSL'] === true ) {
 				$oidc->setVerifyPeer( false );
+				$oidc->setVerifyHost( false );
 			}
 			$redirectURL =
 				SpecialPage::getTitleFor( 'PluggableAuthLogin' )->getFullURL();
